@@ -1,1 +1,7 @@
 https://github.com/JustAnotherArchivist/snscrape
+
+x dev
+key: J8g9yo7Fv0ngkG07OVLjRmvBA
+secret: C9XSfdTjlq262yuSQUPVjdCXXaEBJ3lD6omtWcxrcWWnKn2M3u
+access token: 1167955478141386752-eNfblXGeZmfVoGivTGKmwckAf8oZ0J
+access token secret: DcnEUSwHZq8qo1BbGJiZOk0XV8xLE4hhAThvLDARkXkKC

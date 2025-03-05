@@ -51,7 +51,7 @@ def is_female_related(post):
     # Keywords related to women or female topics
     female_keywords = [
         r"\b(woman|women|girl|girls|female|ladies|lady|feminism|feminist|she|her|hers|wife|girlfriend|mom|mother|daughter|sister|aunt|grandma)\b",
-        r"\b(gender|abortion|reproductive|sex\s*work|infidelity|promiscuity|cuckoldry|patriarchy|matriarchy|misogyny|equality|pay\s*gap)\b",
+        r"\b(gender|abortion|reproductive|sex\s*work|infidelity|promiscuity|cuck|cuckoldry|patriarchy|matriarchy|feminism|feminist|misogyny|misandry|equality|red\s*pill|mgtow|pay\s*gap)\b",
     ]
     # Check for @mentions (assume some might be female users)
     has_mention = bool(re.search(r"@\w+", post))
@@ -75,16 +75,10 @@ def home():
                 female_posts = [post for post in post_texts if is_female_related(post)]
                 if female_posts:
                     prompt = (
-                        f"Analyze these posts from @{username} and rate how much of a 'simp' they are (0.0-10.0, 10.0 being extreme simp behavior like excessive flattery or pedestalization. 0.0 being an absolute anti-feminist and probably MGTOW). "
-                        "Use the 4 waves of feminism as a guide: 1st (suffrage)—support isn’t inherently simping, rejecting it is anti-simp; "
-                        "2nd (workplace/reproductive)—backing CEOs or abortion leans simpish if unconditional; "
-                        "3rd (intersectionality)—excusing accountability is simpish; "
-                        "4th (sex positivity)—supporting sex work, cuckoldry, promiscuity, or infidelity is high simping. "
-                        "Key indicators: unprompted flattery (e.g., 'you’re gorgeous' off-topic) is mid-to-high; "
-                        "agreeing women aren’t accountable is simpish; backing infidelity or promiscuity is 8-10; "
-                        "rejecting voting rights or calling out bad behavior is 0-1. "
-                        "Score: 0-1 (rejects 1st wave), 2-4 (some 1st/2nd support), 5-7 (2nd/3rd support), 8-10 (3rd/4th, extreme pandering). "
-                        "Explain briefly:\n\n" + "\n".join(female_posts)
+                        f"Analyze these posts from @{username} and rate how much of a 'simp' they are (0.0-10.0, 10.0 being extreme simp behavior like excessive flattery or pedestalization, 0.0 being absolute anti-feminist, e.g., MGTOW). "
+                        "Use this point system loosely as a guide: +2 for unprompted flattery (e.g., 'you’re gorgeous' off-topic); +3 for glowing endorsements of women (e.g., praising capability excessively); +2 for excusing women’s accountability; +4 for supporting sex work, cuckoldry, promiscuity, or infidelity; +2 for degenerate PUA behavior (e.g., prioritizing meaningless sex as a life goal); -2 for rejecting women’s rights (e.g., voting); -1 for calling out bad behavior. "
+                        "Cap at 10.0. Score starts at 0.0: 0-1 (anti-simp), 2-4 (mild simp traits), 5-7 (notable simp traits), 8-10 (high to extreme simp). "
+                        "Explain briefly, showing point breakdown:\n\n" + "\n".join(female_posts)
                     )
                     response = openai_client.chat.completions.create(
                         model="gpt-3.5-turbo",

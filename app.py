@@ -75,8 +75,8 @@ def home():
                 female_posts = [post for post in post_texts if is_female_related(post)]
                 if female_posts:
                     prompt = (
-                        f"Analyze these posts from @{username} and rate how much of a 'simp' they are (0.0-10.0, 10.0 being extreme simp behavior like excessive flattery or pedestalization, 0.0 being absolute anti-feminist, e.g., MGTOW). "
-                        "Use this point system loosely as a guide: +2 for unprompted flattery (e.g., 'you’re gorgeous' off-topic); +3 for glowing endorsements of women (e.g., praising capability excessively); +2 for excusing women’s accountability; +4 for supporting sex work, cuckoldry, promiscuity, or infidelity; +2 for degenerate PUA behavior (e.g., prioritizing meaningless sex as a life goal); -2 for rejecting women’s rights (e.g., voting); -1 for calling out bad behavior. "
+                        f"Analyze these posts from @{username} and rate how much of a 'simp' they are (0.0-10.0, 10.0 being extreme simp behavior like excessive flattery or pedestalization, 0.0 being absolute anti-feminist, e.g., MGTOW, SYSBM). "
+                        "Use this point system loosely as a guide: +2 for unprompted flattery (e.g., 'you’re gorgeous' off-topic); +3 for glowing endorsements of women (e.g., praising capability excessively); +2 for excusing women’s accountability; +4 for supporting sex work, cuckoldry, promiscuity, or infidelity; +2 for degenerate pick-up-artist behavior (e.g., prioritizing meaningless sex as a life goal); -2 for rejecting women’s rights (e.g., voting); -1 for calling out bad behavior. "
                         "Cap at 10.0. Score starts at 0.0: 0-1 (anti-simp), 2-4 (mild simp traits), 5-7 (notable simp traits), 8-10 (high to extreme simp). "
                         "Explain briefly, showing point breakdown:\n\n" + "\n".join(female_posts)
                     )
